@@ -1,0 +1,148 @@
+{
+  "version": "1.0",
+  "description": "Starter troubleshooting knowledge base for the Smart Complaint Management Agent. Suggestions are general guidance, not verified diagnoses.",
+  "solutions": [
+    {
+      "id": "NET-001",
+      "category": "technical_support",
+      "keywords": [
+        "internet",
+        "wifi",
+        "router",
+        "connection",
+        "network",
+        "no internet"
+      ],
+      "title": "Basic internet connectivity checks",
+      "steps": [
+        "Check whether the router is powered on and its internet indicator shows a normal connection.",
+        "Check that network cables are firmly connected.",
+        "On the affected device, disconnect from Wi-Fi and reconnect.",
+        "If possible, test another device to determine whether the issue affects one device or multiple devices.",
+        "If the issue continues, contact the internet service provider and share the troubleshooting steps already attempted."
+      ],
+      "escalate_when": [
+        "Multiple devices cannot connect.",
+        "The router shows a persistent red internet or LOS indicator.",
+        "The connection remains unavailable after basic checks."
+      ]
+    },
+    {
+      "id": "NET-002",
+      "category": "technical_support",
+      "keywords": [
+        "slow internet",
+        "slow wifi",
+        "buffering",
+        "low speed",
+        "lag"
+      ],
+      "title": "Slow internet troubleshooting",
+      "steps": [
+        "Run a speed test using a trusted speed-test service.",
+        "Move closer to the router and compare the result.",
+        "Pause large downloads or streaming on other devices.",
+        "Restart the router only if permitted by the service provider.",
+        "If speeds remain unusually low, contact the service provider with the speed-test result and time of testing."
+      ],
+      "escalate_when": [
+        "Low speeds persist across multiple devices.",
+        "The connection repeatedly drops during important activities."
+      ]
+    },
+    {
+      "id": "PAY-001",
+      "category": "payment",
+      "keywords": [
+        "payment",
+        "paid",
+        "charged",
+        "refund",
+        "transaction",
+        "money deducted",
+        "billing"
+      ],
+      "title": "Payment or billing issue",
+      "steps": [
+        "Check the transaction status in the official payment or service application.",
+        "Keep the transaction reference number and payment timestamp available.",
+        "Check whether the amount is marked as pending, successful, or failed.",
+        "Contact the official billing support channel if the status is unclear or the amount is not reconciled."
+      ],
+      "escalate_when": [
+        "The amount was debited but the service or order was not updated.",
+        "The same payment appears to have been charged more than once.",
+        "A promised refund has not arrived within the stated processing period."
+      ]
+    },
+    {
+      "id": "ACC-001",
+      "category": "account_access",
+      "keywords": [
+        "login",
+        "password",
+        "account",
+        "locked",
+        "otp",
+        "sign in",
+        "cannot access"
+      ],
+      "title": "Account access assistance",
+      "steps": [
+        "Confirm that the username or registered email address is correct.",
+        "Use the official password-reset flow if the password is not accepted.",
+        "Check that the device date and time are set correctly if verification codes fail.",
+        "Never share passwords, one-time passwords, or recovery codes with anyone.",
+        "Contact the official support team if the account remains locked."
+      ],
+      "escalate_when": [
+        "The account may have been accessed by someone else.",
+        "The official recovery process does not work.",
+        "The account is locked after repeated failed attempts."
+      ]
+    },
+    {
+      "id": "SRV-001",
+      "category": "service_request",
+      "keywords": [
+        "delay",
+        "not delivered",
+        "not received",
+        "technician",
+        "appointment",
+        "service request"
+      ],
+      "title": "Delayed service request",
+      "steps": [
+        "Locate the existing service-request or order reference.",
+        "Check the latest status through the official service channel.",
+        "Record the expected completion date and any previous communication.",
+        "Ask the responsible support team for an updated timeline."
+      ],
+      "escalate_when": [
+        "The committed service date has passed.",
+        "There has been no status update after the stated response window."
+      ]
+    },
+    {
+      "id": "GEN-001",
+      "category": "general_inquiry",
+      "keywords": [
+        "information",
+        "how do i",
+        "where can i",
+        "policy",
+        "details"
+      ],
+      "title": "General inquiry handling",
+      "steps": [
+        "Identify the exact information the user is requesting.",
+        "Provide an answer only when it is supported by an approved information source.",
+        "If the required information is unavailable, route the inquiry to the appropriate support team."
+      ],
+      "escalate_when": [
+        "The answer depends on account-specific or policy-specific information not present in the knowledge base."
+      ]
+    }
+  ]
+}

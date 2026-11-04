@@ -1,0 +1,96 @@
+[
+  {
+    "id": "SAMPLE-001",
+    "complaint": "My internet has not been working since yesterday. I restarted the router twice and I have an online exam tomorrow.",
+    "expected_category": "technical_support",
+    "expected_priority": "high",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  },
+  {
+    "id": "SAMPLE-002",
+    "complaint": "The payment was deducted from my bank account but my order still shows unpaid.",
+    "expected_category": "payment",
+    "expected_priority": "high",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  },
+  {
+    "id": "SAMPLE-003",
+    "complaint": "I cannot remember my password and the reset email has not arrived.",
+    "expected_category": "account_access",
+    "expected_priority": "medium",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  },
+  {
+    "id": "SAMPLE-004",
+    "complaint": "My service appointment was scheduled for Monday, but nobody has contacted me.",
+    "expected_category": "service_request",
+    "expected_priority": "medium",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  },
+  {
+    "id": "SAMPLE-005",
+    "complaint": "Can you tell me where I can find the customer support timings?",
+    "expected_category": "general_inquiry",
+    "expected_priority": "low",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions"
+    ]
+  },
+  {
+    "id": "SAMPLE-006",
+    "complaint": "I have been charged twice for the same subscription. Please help.",
+    "expected_category": "payment",
+    "expected_priority": "high",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  },
+  {
+    "id": "SAMPLE-007",
+    "complaint": "The website is loading slowly on my laptop, but it works fine on my phone.",
+    "expected_category": "technical_support",
+    "expected_priority": "low",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions"
+    ]
+  },
+  {
+    "id": "SAMPLE-008",
+    "complaint": "My account is locked and I think someone else may have tried to access it.",
+    "expected_category": "account_access",
+    "expected_priority": "high",
+    "expected_tool_sequence": [
+      "classify_complaint",
+      "check_priority",
+      "search_solutions",
+      "create_ticket"
+    ]
+  }
+]
