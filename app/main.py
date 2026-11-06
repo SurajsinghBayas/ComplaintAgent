@@ -1,39 +1,79 @@
-import os
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 
-from app.schemas import ComplaintAnalysis
-
-load_dotenv()
-
-llm = ChatOpenAI(
-    model=os.getenv("OPENROUTER_MODEL"),
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1",
-    temperature=0
-)
-
-# Create structured LLM
-structured_llm = llm.with_structured_output(
-    ComplaintAnalysis
-)
-
-# Customer complaint
-complaint = ["""My internet connection has stopped working since yesterday.
-I have restarted my router twice.
-I have an important online examination tomorrow.""","""I paid twice for the same subscription but was charged twice.""","""I am not able to access my account since yesterday."""]
+from app.graph import complaint_graph
 
 
-for i,complaint in enumerate(complaint,start=1):
-# Generate classification
-    result = structured_llm.invoke(
-        f"""
-        Analyze the following customer complaint.
-        Identify its category and priority.
-        Complaint:
-        {complaint}
-        """
-    )
-    print("\n--- Complaint Analysis ---")
-    print(result.model_dump())
-    
+def process_complaint(complaint: str):
+
+    # Initial state
+    initial_state = {
+        "complaint": complaint,
+        "category": "",
+        "priority": "",
+        "reason": "",
+        "solutions": "",
+        "escalation_required": False,
+        "escalation_reason": "",
+        "final_response": ""
+    }
+
+    print("\n" + "=" * 55)
+    print("SMART COMPLAINT MANAGEMENT AGENT")
+    print("=" * 55)
+
+    print("\nCustomer Complaint:")
+    print(complaint)
+
+    # Execute graph
+    print("\nProcessing complaint...")
+
+    result = complaint_graph.invoke(initial_state)
+
+    # Classification
+    print("\n--- COMPLAINT ANALYSIS ---")
+
+    print("Category:", result["category"])
+    print("Priority:", result["priority"])
+    print("Reason:", result["reason"])
+
+    # Routing result
+    print("\n--- ROUTING DECISION ---")
+
+    if result["escalation_required"]:
+        print("Route: ESCALATION")
+        print("Reason:", result["escalation_reason"])
+
+    else:
+        print("Route: SOLUTION SEARCH")
+
+    # Retrieved solutions
+    print("\n--- RETRIEVED SOLUTIONS ---")
+
+    if result["solutions"]:
+        print(result["solutions"])
+    else:
+        print("No solutions retrieved.")
+
+    # Final response
+    print("\n--- FINAL CUSTOMER RESPONSE ---")
+
+    print(result["final_response"])
+
+    print("\n" + "=" * 55)
+
+
+def main():
+
+    complaints = [
+        "My internet is a little slow today.",
+
+        "Someone has accessed my account without permission.",
+
+        "I paid twice for the same subscription."
+    ]
+
+    for complaint in complaints:
+        process_complaint(complaint)
+
+
+if __name__ == "__main__":
+    main()
